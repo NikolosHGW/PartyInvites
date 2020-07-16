@@ -7,143 +7,34 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>RsvpForm</title>
-    <style>
-        * 
-        {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #808080;
-        }
-        .co{
-            width: 80%;
-            padding: 20px;
-        }
-        .co .row100{
-            position: relative;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(autofit,minmax(300px,1fr));
-        }
-        .co .row100 .col{
-            position: relative;
-            width: 100%;
-            padding: 0 10px;
-            margin: 30px 0 10px;
-            transition: 0.5s;
-        }
-        .co .row100 .inputBox{
-            position: relative;
-            width: 100%;
-            height: 40px;
-            color: #45f3ff;
-        }
-        .co .row100 .inputBox input{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            box-shadow: none;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            padding: 0 10px;
-            z-index: 1;
-            color: #000;
-        }
-        .co .row100 .inputBox .text{
-            position: absolute;
-            top: 0;
-            left: 0;
-            line-height: 40px;
-            font-size: 18px;
-            padding: 0 10px;
-            display: block;
-            transition: 0.5s;
-            pointer-events: none;
-        }
-        .co .row100 .inputBox input:focus + .text,
-        .co .row100 .inputBox input:valid + .text{
-            top: -35px;
-            left: -10px;
-        }
-        .co .row100 .inputBox .line{
-            position: absolute;
-            bottom: 0;
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: #45f3ff;
-            transition: 0.5s;
-            border-radius: 2px;
-            pointer-events: none;
-        }
-        .co .row100 .inputBox input:focus ~ .line,
-        .co .row100 .inputBox input:valid ~ .line{
-            height: 100%;
-        }
-        button{
-            border: none;
-            padding: 7px 35px;
-            cursor: pointer;
-            outline: none;
-            background: #45f3ff;
-            color: #000;
-            font-size: 18px;
-            border-radius: 2px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <form asp-action="RsvpForm" method="post" class="co">
+    <h5 class="bg-primary text-white text-center m-2 p-2">ФОРМА ЗАПОЛНЕНИЯ</h5>
+    <form asp-action="RsvpForm" method="post" class="m-2">
         <div asp-validation-summary="All"></div>
-        <div class="row100">
-            <div class="col">
-                <div class="inputBox">
-                    <input type="text" asp-for="Name" />
-                    <label class="text" asp-for="Name">Ваше имя:</label>
-                    <span class="line"></span>
-                </div>
-            </div>
+        <div class="form-group">
+            <label asp-for="Name">Ваше имя:</label>
+            <input asp-for="Name" class="form-control" />
         </div>
-        <div class="row100">
-            <div class="col">
-                <div class="inputBox">
-                    <input type="text" asp-for="Email" />
-                    <label class="text" asp-for="Email">Ваш email:</label>
-                    <span class="line"></span>
-                </div>
-            </div>
+        <div class="form-group">
+            <label asp-for="Email">Ваш email:</label>
+            <input asp-for="Email" class="form-control" />
         </div>
-        <div class="row100">
-            <div class="col">
-                <div class="inputBox">
-                    <input type="text" asp-for="Phone" />
-                    <label class="text" asp-for="Phone">Ваш номер телефона:</label>
-                    <span class="line"></span>
-                </div>
-            </div>
+        <div class="form-group">
+            <label asp-for="Phone">Ваш телефон:</label>
+            <input asp-for="Phone" class="form-control" />
         </div>
-        <div class="row100">
-            <div class="col">
-                <div class="inputBox">
-                    <label>Вы придете?</label>
-                    <select asp-for="WillAttend">
-                        <option value="">Выберете нужный пункт</option>
-                        <option value="true">Да, я приду</option>
-                        <option value="false">Нет, не смогу придти</option>
-                    </select>
-                </div>
-            </div>
+        <div class="form-group">
+            <label>Вы придете?</label>
+            <select asp-for="WillAttend" class="form-control">
+                <option value="">Выберите вариант</option>
+                <option value="true">Да, я приду</option>
+                <option value="false">Нет, я не смогу придти</option>
+            </select>
         </div>
-        <button type="submit">Подтвердить</button>
+        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </body>
 </html>
