@@ -1,0 +1,48 @@
+﻿@model PartyInvites.Models.GuestResponse
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Спасибо</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: #0f7afc;
+            border-bottom: 1px solid;
+            border-bottom-color: rgba(15, 122, 252, 0.2);
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: #cf0000;
+                border-bottom-color: rgba(208, 64, 0, 0.2);
+            }
+
+            a:visited {
+                text-decoration: none;
+                color: #800080;
+                border-bottom-color: rgba(128, 0, 128, 0.2);
+            }
+    </style>
+</head>
+<body align="center">
+    <div align="center">
+        <h1>Спасибки, @Model.Name!</h1>
+        <p>
+            @if (Model.WillAttend == true)
+            {
+                @:Здорово, что ты придешь! Бухло уже готово!
+            }
+            else
+            {
+                @:Жаль это слышать, дружище/подружище, но спасибо, что дали знать.
+            }
+            </p>
+    </div>
+    <p>Нажми <a asp-action="ListResponses">сюда</a> , чтоб увидеть кто придет.</p>
+    <img src="~/gio.gif" />
+</body>
+</html>
